@@ -4,9 +4,9 @@ from flask import Flask, request, redirect
 import webbrowser
 
 # Spotify API credentials
-client_id = "e57a0662b41a486ea2cdcfe94f457876"
-client_secret = "c8feb5189c2747eaa1327d74c8a9bf2c"
-redirect_uri = "http://localhost:8080/callback"
+client_id = "YOUR SPOTIFY CLIENT ID" 
+client_secret = "YOUR SPOTIFY CLIENT SECRET"
+redirect_uri = "YOUR SPOTIFY REDIRECT URI"
 scope = "user-read-playback-state user-read-currently-playing"
 
 app = Flask(__name__)
