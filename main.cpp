@@ -244,5 +244,5 @@ void loop() {
     } else {
         Serial.println("Failed to allocate JPEG buffer!");
     }
-  delay(1000);
+  delay(0);
 }
