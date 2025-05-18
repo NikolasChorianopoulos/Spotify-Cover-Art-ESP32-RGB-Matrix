@@ -1,0 +1,13 @@
+void noSongPlaying(){
+
+  matrix.fillScreen(matrix.color565(250, 250, 250));
+  uint16_t borderColor = matrix.color565(0, 0, 0);
+  matrix.drawRect(2, 2, 60, 60, borderColor); //(x, y ,h ,w color)
+
+  matrix.setCursor(11, 20);
+  matrix.setTextColor(matrix.color565(0, 0, 0));
+  matrix.setTextSize(1);
+  matrix.print("No Song"); 
+  matrix.setCursor(11, 31); 
+  matrix.print("Playing");
+}

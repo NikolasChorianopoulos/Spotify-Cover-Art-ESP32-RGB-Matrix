@@ -1,0 +1,154 @@
+#include <Arduino.h>
+#include <WiFi.h>
+#include <HTTPClient.h>
+#include <TJpg_Decoder.h>
+#include <ESP32-HUB75-MatrixPanel-I2S-DMA.h>
+
+// WiFi Credentials
+const char* ssid = "Nick";
+const char* password = "12345678";
+
+// Spotify Cover Art URL (Replace with the dynamic URL fetched from Spotify API)
+String imageUrl = "https://i.scdn.co/image/ab67616d00004851fd818c8cfcca8cbae61b0f58";
+
+// Matrix Configuration
+#define PANEL_RES_X 64
+#define PANEL_RES_Y 64
+#define PANEL_CHAIN 1
+
+// Pin Config
+#define R1_PIN 25
+#define G1_PIN 26
+#define B1_PIN 27
+#define R2_PIN 14
+#define G2_PIN 12
+#define B2_PIN 13
+#define A_PIN 23
+#define B_PIN 19
+#define C_PIN 5
+#define D_PIN 17
+#define E_PIN 32
+#define LAT_PIN 4
+#define OE_PIN 15
+#define CLK_PIN 16
+
+// Matrix Panel Object
+HUB75_I2S_CFG mxconfig(
+  PANEL_RES_X, // Width
+  PANEL_RES_Y, // Height
+  PANEL_CHAIN  // Number of chained panels
+);
+MatrixPanel_I2S_DMA matrix;
+
+// Downloaded Image Buffer
+uint8_t* jpgBuffer = nullptr;
+size_t jpgSize = 0;
+
+// Function to Render Pixels
+// Function to Render Pixels
+bool tftOutput(int16_t x, int16_t y, uint16_t w, uint16_t h, uint16_t* bitmap) {
+  // Loop through the rectangular region and draw each pixel
+  for (int16_t row = 0; row < h; row++) {
+    for (int16_t col = 0; col < w; col++) {
+      int16_t pixelX = x + col;
+      int16_t pixelY = y + row;
+      if (pixelX >= 0 && pixelY >= 0 && pixelX < PANEL_RES_X && pixelY < PANEL_RES_Y) {
+        matrix.drawPixel(pixelX, pixelY, bitmap[row * w + col]);
+      }
+    }
+  }
+  return true;
+}
+
+
+// Download Image from URL
+bool downloadImage() {
+  HTTPClient http;
+  http.begin(imageUrl);
+  int httpCode = http.GET();
+
+  if (httpCode == HTTP_CODE_OK) {
+    jpgSize = http.getSize();
+    jpgBuffer = (uint8_t*)malloc(jpgSize);
+    if (!jpgBuffer) {
+      Serial.println("Failed to allocate memory for image.");
+      return false;
+    }
+
+    WiFiClient* stream = http.getStreamPtr();
+    size_t bytesRead = 0;
+    while (http.connected() && bytesRead < jpgSize) {
+      size_t available = stream->available();
+      if (available) {
+        bytesRead += stream->readBytes(jpgBuffer + bytesRead, available);
+      }
+    }
+
+    Serial.printf("HTTP GET Response Code: %d\n", httpCode);
+    
+    http.end();
+    return true;
+  }
+
+  Serial.println("Failed to download image.");
+  http.end();
+  return false;
+}
+
+void setup() {
+  Serial.begin(115200);
+
+  // Connect to WiFi
+  WiFi.begin(ssid, password);
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+  }
+  Serial.println("WiFi connected.");
+
+  // Initialize Matrix
+  mxconfig.gpio.r1 = R1_PIN;
+  mxconfig.gpio.g1 = G1_PIN;
+  mxconfig.gpio.b1 = B1_PIN;
+  mxconfig.gpio.r2 = R2_PIN;
+  mxconfig.gpio.g2 = G2_PIN;
+  mxconfig.gpio.b2 = B2_PIN;
+  mxconfig.gpio.a = A_PIN;
+  mxconfig.gpio.b = B_PIN;
+  mxconfig.gpio.c = C_PIN;
+  mxconfig.gpio.d = D_PIN;
+  mxconfig.gpio.e = E_PIN;
+  mxconfig.gpio.lat = LAT_PIN;
+  mxconfig.gpio.oe = OE_PIN;
+  mxconfig.gpio.clk = CLK_PIN;
+
+  matrix.begin(mxconfig);
+  matrix.fillScreen(matrix.color565(0, 0, 0));
+
+  // Initialize JPEG Decoder
+  TJpgDec.setCallback(tftOutput);
+  TJpgDec.setSwapBytes(false);
+
+  // Download and Display Image
+  if (downloadImage()) {
+    TJpgDec.drawJpg(0, 0, jpgBuffer, jpgSize);
+    free(jpgBuffer);
+  } else {
+    Serial.println("Image display failed.");
+  }
+
+    
+
+    Serial.printf("Expected JPEG Size: %d\n", jpgSize);
+    if (jpgBuffer) {
+        Serial.println("JPEG buffer successfully allocated.");
+    } else {
+        Serial.println("Failed to allocate JPEG buffer!");
+    }
+
+}
+
+void loop() {
+  // Loop can be extended for periodic updates
+  delay(10000);
+}
