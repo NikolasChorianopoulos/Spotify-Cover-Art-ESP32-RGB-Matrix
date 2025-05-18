@@ -15,8 +15,8 @@ MatrixPanel_I2S_DMA matrix;
 
 
 // WiFi Credentials
-const char* ssid = "Crazy Science Duck";
-const char* password = "6986821238";
+const char* ssid = "YOUR WIFI SSID";
+const char* password = "YOUR WIFI PASSWORD";
 
 
 void wifiSetup(){
@@ -61,9 +61,9 @@ void wifiSetup(){
 }
 
 // Spotify credentials
-const char* client_id = "e57a0662b41a486ea2cdcfe94f457876";
-const char* client_secret = "c8feb5189c2747eaa1327d74c8a9bf2c";
-String refresh_token = "AQCBcHxTke_q-vYyvjTtu3Wwsu2hlr9GMvK1ueyqtnrLPnYXxBGAn3iIP6_4779ws65y_ehRtB_yjBaRiN4P3G27TizdD-4lHRKNY2y2HZQm6FZejR67RXPVc4blSxpc6zg"; // Obtain this from initial authorization
+const char* client_id = "YOUR SPOTIFY CLIENT ID";
+const char* client_secret = "YOUR SPOTIFY CLIENT SECRET";
+String refresh_token = "YOUR SPOTIFY REFRESH TOKEN"; // Obtain this from initial authorization
 String access_token;
 
 // Spotify API URLs
