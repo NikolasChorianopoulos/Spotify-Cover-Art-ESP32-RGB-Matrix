@@ -62,3 +62,7 @@ CLK 16
 ![](https://github.com/NikolasChorianopoulos/Spotify-Cover-Art-ESP32-RGB-Matrix/blob/main/images/IMG_7776.jpg)
 
 
+# Current Issues (that don't necessarily affect usage)
+If you leave the matrix on for more than an hour, the Spotify refresh token expires and won’t refresh by itself. It only checks when you turn the device on again. Ideally, it should check every hour and refresh the token automatically so you don’t have to restart it all the time.
+
+
