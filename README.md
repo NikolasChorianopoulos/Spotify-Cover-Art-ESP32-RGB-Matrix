@@ -23,9 +23,11 @@ Next, go to the settings of your application, where you will find the Client ID 
 # Current Status
 As of now, the code performs its intended functionality, but there are a few issues to address:
 
-Display Speed: The transition speed of updates to the display needs improvement for smoother performance.
+- Display Speed: The transition speed of updates to the display needs improvement for smoother performance.
 
-Color Correction: Some colors, particularly blacks, appear distorted with a greenish hue, requiring adjustments to ensure accurate color representation.
+- Color Correction: Some colors, particularly blacks, appear distorted with a greenish hue, requiring adjustments to ensure accurate color representation.
+
+- If you leave the matrix on for more than an hour, the Spotify refresh token expires and won’t refresh by itself. It only checks when you turn the device on again. Ideally, it should check every hour and refresh the token automatically so you don’t have to restart it all the time.
 
 
 
@@ -62,7 +64,6 @@ CLK 16
 ![](https://github.com/NikolasChorianopoulos/Spotify-Cover-Art-ESP32-RGB-Matrix/blob/main/images/IMG_7776.jpg)
 
 
-# Current Issues (that don't necessarily affect usage)
-If you leave the matrix on for more than an hour, the Spotify refresh token expires and won’t refresh by itself. It only checks when you turn the device on again. Ideally, it should check every hour and refresh the token automatically so you don’t have to restart it all the time.
+
 
 
