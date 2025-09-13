@@ -54,15 +54,20 @@ CLK 16
 **This project has only been tested with the ESP32 Devkit v1 and the Waveshare 64x64 RGB LED Matrix P2. Compatibility with other microcontrollers or LED matrices has not been verified and may require additional testing or modifications.**
 
 # Final work
-![](https://github.com/NikolasChorianopoulos/Spotify-Cover-Art-ESP32-RGB-Matrix/blob/main/images/WifiConnected.jpg)
-![](https://github.com/NikolasChorianopoulos/Spotify-Cover-Art-ESP32-RGB-Matrix/blob/main/images/NoSongPlaying.jpg)
-![](https://github.com/NikolasChorianopoulos/Spotify-Cover-Art-ESP32-RGB-Matrix/blob/main/images/IMG_7768.jpg)
-![](https://github.com/NikolasChorianopoulos/Spotify-Cover-Art-ESP32-RGB-Matrix/blob/main/images/IMG_7769.jpg)
-![](https://github.com/NikolasChorianopoulos/Spotify-Cover-Art-ESP32-RGB-Matrix/blob/main/images/IMG_7770.jpg)
-![](https://github.com/NikolasChorianopoulos/Spotify-Cover-Art-ESP32-RGB-Matrix/blob/main/images/IMG_7771.jpg)
-![](https://github.com/NikolasChorianopoulos/Spotify-Cover-Art-ESP32-RGB-Matrix/blob/main/images/IMG_7772.jpg)
-![](https://github.com/NikolasChorianopoulos/Spotify-Cover-Art-ESP32-RGB-Matrix/blob/main/images/IMG_7776.jpg)
-
+<table>
+  <tr>
+    <td><img src="https://github.com/NikolasChorianopoulos/Spotify-Cover-Art-ESP32-RGB-Matrix/blob/main/images/WifiConnected.jpg" width="170"/></td>
+    <td><img src="https://github.com/NikolasChorianopoulos/Spotify-Cover-Art-ESP32-RGB-Matrix/blob/main/images/NoSongPlaying.jpg" width="170"/></td>
+    <td><img src="https://github.com/NikolasChorianopoulos/Spotify-Cover-Art-ESP32-RGB-Matrix/blob/main/images/IMG_7768.jpg" width="170"/></td>
+    <td><img src="https://github.com/NikolasChorianopoulos/Spotify-Cover-Art-ESP32-RGB-Matrix/blob/main/images/IMG_7769.jpg" width="170"/></td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/NikolasChorianopoulos/Spotify-Cover-Art-ESP32-RGB-Matrix/blob/main/images/IMG_7770.jpg" width="170"/></td>
+    <td><img src="https://github.com/NikolasChorianopoulos/Spotify-Cover-Art-ESP32-RGB-Matrix/blob/main/images/IMG_7771.jpg" width="170"/></td>
+    <td><img src="https://github.com/NikolasChorianopoulos/Spotify-Cover-Art-ESP32-RGB-Matrix/blob/main/images/IMG_7772.jpg" width="170"/></td>
+    <td><img src="https://github.com/NikolasChorianopoulos/Spotify-Cover-Art-ESP32-RGB-Matrix/blob/main/images/IMG_7776.jpg" width="170"/></td>
+  </tr>
+</table>
 
 
 
