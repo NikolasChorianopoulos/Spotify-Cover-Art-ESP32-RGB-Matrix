@@ -2,7 +2,7 @@
 
 This project demonstrates how to display the cover art of the currently playing song on a 64x64 RGB LED matrix using an ESP32 microcontroller and the Spotify Web API.
 
-Originally developed as my undergraduate thesis, the project aims to integrate IoT and multimedia by leveraging the ESP32 Devkit v1, the Waveshare 64x64 RGB LED Matrix P2, and a 5V/5A power supply to power both the ESP32 and the LED matrix.
+Originally developed as my [undergraduate thesis](https://nemertes.library.upatras.gr/items/2b9b8037-57d2-46e0-a9bc-6c1ad7b8049b), the project aims to integrate IoT and multimedia by leveraging the ESP32 Devkit v1, the Waveshare 64x64 RGB LED Matrix P2, and a 5V/5A power supply to power both the ESP32 and the LED matrix.
 
 For programming, I used Visual Studio Code with the PlatformIO extension, which provided faster upload times and real-time error handling compared to the Arduino IDE. This choice significantly enhanced the development experience and efficiency. The code is written in C++.
 
